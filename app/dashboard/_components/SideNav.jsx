@@ -33,11 +33,15 @@ function SideNav() {
     ]
 
     const path=usePathname();
-    console.log(path)
+     
   return (
-    <div className='w-64 h-screen shadow-md p-5'>
+    <div className='w-64 h-screen shadow-lg border-r border-gray-200 bg-white p-5'>
         <div className='grid gap-3'>
             {MenuOption.map((item,index)=>(
+                <div
+                key={item.id}
+                className="gap-4 p-3 rounded-lg"
+              >
                 <Link href={item.path}>
                 <div className={`flex items-center gap-3 p-3 hover:bg-blue-500 hover:text-white rounded-md cursor-pointer
                     ${path==item.path&&'bg-blue-500 text-white'}
@@ -47,11 +51,11 @@ function SideNav() {
 
                     </div>
                 </Link>
+                </div>
             ))}
-
         </div>
     </div>
-  )
+  );
 }
 
 export default SideNav
