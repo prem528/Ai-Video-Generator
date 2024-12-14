@@ -36,7 +36,7 @@ function SideNav() {
      
   return (
     <div className='w-64 h-screen shadow-lg border-r border-gray-200 bg-white p-5'>
-        <div className='grid gap-3'>
+        <div className='grid gap'>
             {MenuOption.map((item,index)=>(
                 <div
                 key={item.id}

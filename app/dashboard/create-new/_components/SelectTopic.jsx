@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Select,
   SelectContent,
@@ -10,16 +10,20 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
-function SelectTopic({ onUserSelect }) {
-  const options = [
+function SelectTopic({ onUserSelect, productName }) {
+  const defaultOptions = [
     "Custom Prompt",
-    "Product Description",
-    "Product Advertisement",
-    "Product Review",
-    "Story Telling",
+ 
   ];
 
+  const [options, setOptions] = useState(defaultOptions);
   const [selectedOption, setSelectedOption] = useState();
+
+  useEffect(() => {
+    if (productName && !options.includes(productName)) {
+      setOptions([productName, ...defaultOptions]);
+    }
+  }, [productName]);
 
   const handleValueChange = (value) => {
     setSelectedOption(value);
@@ -37,13 +41,11 @@ function SelectTopic({ onUserSelect }) {
           <SelectValue placeholder="Content Type" />
         </SelectTrigger>
         <SelectContent>
-          {options.map((item, index) => {
-            return (
-              <SelectItem key={index} value={item}>
-                {item}
-              </SelectItem>
-            );
-          })}
+          {options.map((item, index) => (
+            <SelectItem key={index} value={item}>
+              {item}
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
 
@@ -59,3 +61,4 @@ function SelectTopic({ onUserSelect }) {
 }
 
 export default SelectTopic;
+

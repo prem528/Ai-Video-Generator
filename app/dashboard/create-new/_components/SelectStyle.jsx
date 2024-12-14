@@ -5,12 +5,12 @@ function SelectStyle({ onUserSelect }) {
   const styleOptions = [
     {
       id: 1,
-      name: "ai-avatar",
+      name: "Minimalist",
       image: "/ai-image.jpg",
     },
     {
       id: 2,
-      name: "Cartoon",
+      name: "Futuristic",
       image: "/3d-avatar-girl.jpg",
     },
     {
@@ -20,14 +20,10 @@ function SelectStyle({ onUserSelect }) {
       },
       {
         id: 4,
-        name: "Cartoon",
-        image: "/3d-avatar-girl.jpg",
-      },
-      {
-        id: 5,
-        name: "Realistic",
-        image: "/realistic.webp",
+        name: "Advertisement",
+        image: "/ads.png",
         },
+ 
   ];
 
   const [selectedOption, setSelectedOption] = useState();
